@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:projeto_flutter/models/produto.dart';
-import './list_usuarios_page.dart';
 import 'edit_produto.dart';
 import '../../../controllers/user_controller.dart';
 
@@ -33,7 +32,7 @@ class _ListarProdutoState extends State<ListarProduto> {
       ),
       body: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
         stream: FirebaseFirestore.instance
-            .collection('Produtos')
+            .collection('produtos')
             //listar todos os itens
             .where('ownerKey', isEqualTo: userController.user!.uid)
 
@@ -70,7 +69,7 @@ class _ListarProdutoState extends State<ListarProduto> {
                         width: 72,
                       )
                     : Container(
-                        child: Icon(Icons.location_on),
+                        child: Icon(Icons.photo),
                         width: 72,
                         height: double.maxFinite,
                         color: Colors.blue,

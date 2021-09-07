@@ -34,9 +34,9 @@ class _ListarProdutoWhiskyState extends State<ListarProdutoWhisky> {
       ),
       body: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
         stream: FirebaseFirestore.instance
-            .collection('Produtos')
+            .collection('produtos')
             .where('ownerKey', isEqualTo: userController.user!.uid)
-            .where('Categoria', isEqualTo: "Whisky")
+            .where('categoria', isEqualTo: "Whisky")
             .snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {

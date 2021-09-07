@@ -46,9 +46,8 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () async {
                   try {
                     await userController.login(email, senha);
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
-                       
-                 
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
                   } on FirebaseAuthException catch (e) {
                     var msg = "";
 
@@ -69,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 child: Text("Login"),
               ),
-              Text("OU"),
+              SizedBox(height: 12),
               OutlinedButton(
                 onPressed: () {
                   Navigator.push(
