@@ -23,6 +23,8 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
     ..text = widget.produto.quantidade.toString();
   late final precoCont = TextEditingController()
     ..text = widget.produto.preco.toString();
+
+     bool promocao = false;
   late Uint8List? file = widget.produto.imagem;
 
   @override
@@ -57,7 +59,6 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
               TextField(
                 controller: descricaoCont,
                 decoration: InputDecoration(
-                  suffixIcon: Icon(Icons.location_on),
                   labelText: "Descrição",
                 ),
               ),
@@ -66,7 +67,6 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
                 decoration: InputDecoration(
                   labelText: "Quantidade",
                 ),
-                maxLines: 20,
               ),
               const SizedBox(height: 8),
               TextField(
@@ -74,16 +74,14 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
                 decoration: InputDecoration(
                   labelText: "Preço",
                 ),
-                maxLines: 20,
               ),
               const SizedBox(height: 8),
-              TextField(
-                controller: precoCont,
-                decoration: InputDecoration(
-                  labelText: "Promoção",
-                ),
-                maxLines: 20,
-              ),
+              // TextField(
+              //   controller: precoCont,
+              //   decoration: InputDecoration(
+              //     labelText: "Promoção",
+              //   ),
+              // ),
               const SizedBox(height: 8),
               TextField(
                 controller: categoriaCont,
@@ -91,6 +89,42 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
                   labelText: "Categoria",
                 ),
               ),
+             
+             
+             
+                 Row(
+                children: [
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Switch(
+                          activeColor: Colors.pink,
+                          value: promocao,
+                          onChanged: (value) {
+                            setState(() {
+                              promocao = value;
+                            });
+                          },
+                        ),
+                        SizedBox(
+                          height: 12.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
               ElevatedButton(
                 onPressed: () async {
                   final result =
@@ -111,6 +145,17 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
                 ),
               ),
               const SizedBox(height: 8),
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
               OutlinedButton(
                 onPressed: () async {
                   final atualizado = ProdutoModel(
