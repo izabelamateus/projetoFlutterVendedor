@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_flutter/pages/lista_produtosCerveja.dart';
+import 'package:projeto_flutter/pages/lista_produtosVinho.dart';
+import 'package:projeto_flutter/pages/lista_produtosWhisky.dart';
 import 'package:provider/provider.dart';
 import './lista_produtos.dart';
 import '../controllers/user_controller.dart';
@@ -55,13 +58,12 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ListarProduto()));
+                            builder: (context) => ListarProdutoCerveja()));
                   },
                   child: Text("Cerveja"),
                   style: TextButton.styleFrom(
                     primary: Colors.white,
                     backgroundColor: Colors.purple,
-                    
                   ),
                 ),
               ),
@@ -69,12 +71,16 @@ class _HomePageState extends State<HomePage> {
                 height: 100,
                 width: 100,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ListarProdutoVinho()));
+                  },
                   child: Text("Vinho"),
                   style: TextButton.styleFrom(
                     primary: Colors.white,
                     backgroundColor: Colors.purple,
-                    
                   ),
                 ),
               ),
@@ -82,12 +88,16 @@ class _HomePageState extends State<HomePage> {
                 height: 100,
                 width: 100,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ListarProdutoWhisky()));
+                  },
                   child: Text("Whisky"),
                   style: TextButton.styleFrom(
                     primary: Colors.white,
                     backgroundColor: Colors.purple,
-                    
                   ),
                 ),
               ),

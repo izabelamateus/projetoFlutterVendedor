@@ -7,12 +7,12 @@ import 'edit_produto.dart';
 import 'add_produto.dart';
 import '../../../controllers/user_controller.dart';
 
-class ListarProduto extends StatefulWidget {
+class ListarProdutoWhisky extends StatefulWidget {
   @override
-  _ListarProdutoState createState() => _ListarProdutoState();
+  _ListarProdutoWhiskyState createState() => _ListarProdutoWhiskyState();
 }
 
-class _ListarProdutoState extends State<ListarProduto> {
+class _ListarProdutoWhiskyState extends State<ListarProdutoWhisky> {
   late final userController = Provider.of<UserController>(
     context,
     listen: false,
@@ -58,12 +58,8 @@ class _ListarProdutoState extends State<ListarProduto> {
       body: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
         stream: FirebaseFirestore.instance
             .collection('Produtos')
-            //listar todos os itens
             .where('ownerKey', isEqualTo: userController.user!.uid)
-
-            //listar por categoria
-            // .where('Categoria', isEqualTo: "Vinho")
-
+            .where('Categoria', isEqualTo: "Whisky")
             .snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
