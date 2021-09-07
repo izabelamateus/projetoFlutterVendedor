@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_flutter/pages/lista_produtosCerveja.dart';
 import 'package:projeto_flutter/pages/lista_produtosVinho.dart';
 import 'package:projeto_flutter/pages/lista_produtosWhisky.dart';
+import 'package:projeto_flutter/pages/teste.dart';
 import 'package:provider/provider.dart';
 import '../controllers/user_controller.dart';
 import 'list_usuarios_page.dart';
@@ -48,6 +49,18 @@ class _HomePageState extends State<HomePage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => ListarProduto(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.production_quantity_limits),
+              title: Text("Teste"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage2(),
                   ),
                 );
               },

@@ -16,6 +16,7 @@ class _AddWhiskyState extends State<AddWhisky> {
       descricao = "",
       categoria = "Whisky",
       quantidade = "",
+      volume = "",
       preco = "";
   bool promocao = false;
 
@@ -60,6 +61,12 @@ class _AddWhiskyState extends State<AddWhisky> {
                   labelText: "Preço",
                 ),
                 onChanged: (texto) => preco = texto,
+              ),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: "Volume",
+                ),
+                onChanged: (texto) => volume = texto,
               ),
               const SizedBox(height: 8),
               Row(
@@ -122,11 +129,12 @@ class _AddWhiskyState extends State<AddWhisky> {
                     preco: preco,
                     promocao: promocao,
                     categoria: categoria,
+                    volume: volume,
                     imagem: file,
                   ).toMap();
 
                   await FirebaseFirestore.instance
-                      .collection('Produtos')
+                      .collection('produtos')
                       .add(novoProduto);
 
                   Navigator.pop(context);

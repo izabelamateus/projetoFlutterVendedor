@@ -17,14 +17,14 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
   late final itemCont = TextEditingController()..text = widget.produto.item;
   late final categoriaCont = TextEditingController()
     ..text = widget.produto.categoria;
+  late final volumeCont = TextEditingController()..text = widget.produto.volume;
   late final descricaoCont = TextEditingController()
     ..text = widget.produto.descricao;
   late final quantidadeCont = TextEditingController()
-    ..text = widget.produto.quantidade.toString();
-  late final precoCont = TextEditingController()
-    ..text = widget.produto.preco.toString();
+    ..text = widget.produto.quantidade;
+  late final precoCont = TextEditingController()..text = widget.produto.preco;
 
-     bool promocao = false;
+  bool promocao = false;
   late Uint8List? file = widget.produto.imagem;
 
   @override
@@ -76,12 +76,12 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
                 ),
               ),
               const SizedBox(height: 8),
-              // TextField(
-              //   controller: precoCont,
-              //   decoration: InputDecoration(
-              //     labelText: "Promoção",
-              //   ),
-              // ),
+              TextField(
+                controller: volumeCont,
+                decoration: InputDecoration(
+                  labelText: "Volume",
+                ),
+              ),
               const SizedBox(height: 8),
               TextField(
                 controller: categoriaCont,
@@ -89,10 +89,7 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
                   labelText: "Categoria",
                 ),
               ),
-             
-             
-             
-                 Row(
+              Row(
                 children: [
                   Center(
                     child: Column(
@@ -115,16 +112,6 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
                   ),
                 ],
               ),
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
               ElevatedButton(
                 onPressed: () async {
                   final result =
@@ -145,17 +132,6 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
                 ),
               ),
               const SizedBox(height: 8),
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
               OutlinedButton(
                 onPressed: () async {
                   final atualizado = ProdutoModel(
@@ -166,6 +142,7 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
                     preco: widget.produto.preco,
                     promocao: widget.produto.promocao,
                     categoria: widget.produto.categoria,
+                    volume: widget.produto.volume,
                     imagem: file,
                   ).toMap();
 
