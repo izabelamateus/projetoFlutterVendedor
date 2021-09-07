@@ -1,0 +1,100 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import './lista_produtos.dart';
+import '../controllers/user_controller.dart';
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late final userController = Provider.of<UserController>(
+    context,
+    listen: false,
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Adicionar por categoria"),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              await userController.logout();
+            },
+            icon: Icon(Icons.exit_to_app),
+          ),
+        ],
+      ),
+      body: Column(
+        children: [
+          Container(
+            child: Text("colocar dashboard"),
+            color: Colors.blue,
+            height: 250,
+          ),
+          SizedBox(height: 9),
+          Text(
+            "Categorias",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                height: 100,
+                width: 100,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ListarProduto()));
+                  },
+                  child: Text("Cerveja"),
+                  style: TextButton.styleFrom(
+                    primary: Colors.white,
+                    backgroundColor: Colors.purple,
+                    
+                  ),
+                ),
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text("Vinho"),
+                  style: TextButton.styleFrom(
+                    primary: Colors.white,
+                    backgroundColor: Colors.purple,
+                    
+                  ),
+                ),
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text("Whisky"),
+                  style: TextButton.styleFrom(
+                    primary: Colors.white,
+                    backgroundColor: Colors.purple,
+                    
+                  ),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
