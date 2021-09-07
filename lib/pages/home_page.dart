@@ -3,8 +3,9 @@ import 'package:projeto_flutter/pages/lista_produtosCerveja.dart';
 import 'package:projeto_flutter/pages/lista_produtosVinho.dart';
 import 'package:projeto_flutter/pages/lista_produtosWhisky.dart';
 import 'package:provider/provider.dart';
-import './lista_produtos.dart';
 import '../controllers/user_controller.dart';
+import 'list_usuarios_page.dart';
+import 'lista_produtos.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -20,6 +21,40 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text(userController.model.nome),
+              accountEmail: Text(userController.user!.email!),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Bootiquim SoulBreja"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ListUsuariosPage(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.production_quantity_limits),
+              title: Text("Produtos"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ListarProduto(),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text("Adicionar por categoria"),
         actions: [
