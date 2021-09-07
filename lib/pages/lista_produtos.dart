@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:projeto_flutter/models/produto.dart';
 import './list_usuarios_page.dart';
 import 'edit_produto.dart';
-import 'add_produto.dart';
 import '../../../controllers/user_controller.dart';
 
 class ListarProduto extends StatefulWidget {
@@ -21,31 +20,8 @@ class _ListarProdutoState extends State<ListarProduto> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            // UserAccountsDrawerHeader(
-            //   accountName: Text(userController.model.nome),
-            //   accountEmail: Text(userController.user!.email!),
-            // ),
-
-            ListTile(
-              leading: Icon(Icons.person),
-              title: Text("Bootiquim SoulBreja"),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ListUsuariosPage(),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
       appBar: AppBar(
-        title: Text("Adicionar por categoria"),
+        title: Text("Lista Geral de Produtos"),
         actions: [
           IconButton(
             onPressed: () async {
@@ -111,17 +87,6 @@ class _ListarProdutoState extends State<ListarProduto> {
                 },
               );
             },
-          );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => AddProduto(),
-            ),
           );
         },
       ),

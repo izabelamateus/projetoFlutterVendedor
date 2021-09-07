@@ -6,13 +6,17 @@ import 'package:provider/provider.dart';
 import '../controllers/user_controller.dart';
 import '../models/produto.dart';
 
-class AddProduto extends StatefulWidget {
+class AddCerveja extends StatefulWidget {
   @override
-  _AddProdutoState createState() => _AddProdutoState();
+  _AddCervejaState createState() => _AddCervejaState();
 }
 
-class _AddProdutoState extends State<AddProduto> {
-  String item = "", descricao = "", categoria = "", quantidade = "", preco = "";
+class _AddCervejaState extends State<AddCerveja> {
+  String item = "",
+      descricao = "",
+      categoria = "Cerveja",
+      quantidade = "",
+      preco = "";
   bool promocao = false;
 
   Uint8List? file;
@@ -26,7 +30,7 @@ class _AddProdutoState extends State<AddProduto> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Adicionar produto"),
+        title: Text("Adicionar Cerveja"),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -57,12 +61,6 @@ class _AddProdutoState extends State<AddProduto> {
                 ),
                 onChanged: (texto) => preco = texto,
               ),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: "Categoria",
-                ),
-                onChanged: (texto) => categoria = texto,
-              ),
               const SizedBox(height: 8),
               Row(
                 children: [
@@ -87,8 +85,6 @@ class _AddProdutoState extends State<AddProduto> {
                   ),
                 ],
               ),
-          
-          
               ElevatedButton(
                 onPressed: () async {
                   final result =
@@ -137,7 +133,7 @@ class _AddProdutoState extends State<AddProduto> {
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Text("Adicionar produto"),
+                  child: Text("Adicionar Cerveja"),
                 ),
               )
             ],

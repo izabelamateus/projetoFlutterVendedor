@@ -1,10 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_flutter/pages/add_cerveja.dart';
 import 'package:provider/provider.dart';
 import 'package:projeto_flutter/models/produto.dart';
-import './list_usuarios_page.dart';
 import 'edit_produto.dart';
-import 'add_produto.dart';
 import '../../../controllers/user_controller.dart';
 
 class ListarProdutoCerveja extends StatefulWidget {
@@ -21,31 +20,8 @@ class _ListarProdutoCervejaState extends State<ListarProdutoCerveja> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            // UserAccountsDrawerHeader(
-            //   accountName: Text(userController.model.nome),
-            //   accountEmail: Text(userController.user!.email!),
-            // ),
-
-            ListTile(
-              leading: Icon(Icons.person),
-              title: Text("Bootiquim SoulBreja"),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ListUsuariosPage(),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
       appBar: AppBar(
-        title: Text("Adicionar por categoria"),
+        title: Text("Lista de Cervejas"),
         actions: [
           IconButton(
             onPressed: () async {
@@ -93,10 +69,10 @@ class _ListarProdutoCervejaState extends State<ListarProdutoCerveja> {
                         width: 72,
                       )
                     : Container(
-                        child: Icon(Icons.location_on),
+                        child: Icon(Icons.photo),
                         width: 72,
                         height: double.maxFinite,
-                        color: Colors.blue,
+                        color: Colors.grey,
                       ),
                 onTap: () {
                   Navigator.push(
@@ -119,7 +95,7 @@ class _ListarProdutoCervejaState extends State<ListarProdutoCerveja> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => AddProduto(),
+              builder: (context) => AddCerveja(),
             ),
           );
         },

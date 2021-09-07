@@ -1,10 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_flutter/pages/add_vinho.dart';
 import 'package:provider/provider.dart';
 import 'package:projeto_flutter/models/produto.dart';
-import './list_usuarios_page.dart';
 import 'edit_produto.dart';
-import 'add_produto.dart';
 import '../../../controllers/user_controller.dart';
 
 class ListarProdutoVinho extends StatefulWidget {
@@ -21,31 +20,8 @@ class _ListarProdutoVinhoState extends State<ListarProdutoVinho> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            // UserAccountsDrawerHeader(
-            //   accountName: Text(userController.model.nome),
-            //   accountEmail: Text(userController.user!.email!),
-            // ),
-
-            ListTile(
-              leading: Icon(Icons.person),
-              title: Text("Bootiquim SoulBreja"),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ListUsuariosPage(),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
       appBar: AppBar(
-        title: Text("Adicionar por categoria"),
+        title: Text("Lista de Vinhos"),
         actions: [
           IconButton(
             onPressed: () async {
@@ -60,7 +36,6 @@ class _ListarProdutoVinhoState extends State<ListarProdutoVinho> {
             .collection('Produtos')
             .where('ownerKey', isEqualTo: userController.user!.uid)
             .where('Categoria', isEqualTo: "Vinho")
-          
             .snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
@@ -80,7 +55,10 @@ class _ListarProdutoVinhoState extends State<ListarProdutoVinho> {
                 title: Text(produto.item),
                 subtitle: Row(
                   children: [
+                    Text("Quantidade: "),
                     Text(produto.quantidade),
+                    SizedBox(width: 6),
+                    Text("Valor: "),
                     Text(produto.preco),
                   ],
                 ),
@@ -91,7 +69,7 @@ class _ListarProdutoVinhoState extends State<ListarProdutoVinho> {
                         width: 72,
                       )
                     : Container(
-                        child: Icon(Icons.location_on),
+                        child: Icon(Icons.photo),
                         width: 72,
                         height: double.maxFinite,
                         color: Colors.blue,
@@ -117,7 +95,7 @@ class _ListarProdutoVinhoState extends State<ListarProdutoVinho> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => AddProduto(),
+              builder: (context) => AddVinho(),
             ),
           );
         },
