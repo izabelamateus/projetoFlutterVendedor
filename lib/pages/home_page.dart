@@ -5,6 +5,7 @@ import 'package:projeto_flutter/pages/lista_produtosWhisky.dart';
 import 'package:projeto_flutter/pages/teste.dart';
 import 'package:provider/provider.dart';
 import '../controllers/user_controller.dart';
+import 'dash.dart';
 import 'list_usuarios_page.dart';
 import 'lista_produtos.dart';
 
@@ -54,13 +55,13 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.production_quantity_limits),
-              title: Text("Teste"),
+              leading: Icon(Icons.dashboard),
+              title: Text("Estatísticas"),
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HomePage2(),
+                    builder: (context) => PieChartSample2(),
                   ),
                 );
               },
