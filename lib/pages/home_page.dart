@@ -84,10 +84,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          Image.asset(
-            "logo2.jpeg"
-          ),
-          
+          Image.asset("logo2.jpeg"),
           SizedBox(height: 9),
           Text(
             "Categorias",
@@ -96,12 +93,14 @@ class _HomePageState extends State<HomePage> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 15),
+          SizedBox(height: 25),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
-                decoration: BoxDecoration(image: new DecorationImage(image: new AssetImage('cerveja.jpg'))),
+                decoration: BoxDecoration(
+                    image: new DecorationImage(
+                        image: new AssetImage('cerveja.jpg'))),
                 height: 100,
                 width: 100,
                 child: TextButton(
@@ -112,17 +111,16 @@ class _HomePageState extends State<HomePage> {
                             builder: (context) => ListarProdutoCerveja()));
                   },
                   child: Text(
-                        'Cerveja',
-                        style: TextStyle(color: Colors.black,
-                                          fontWeight: FontWeight.bold
-                          
-                        ),
-                      ),
-
+                    '',
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
               Container(
-                decoration: BoxDecoration(image: new DecorationImage(image: new AssetImage('vinho.jpg'))),
+                decoration: BoxDecoration(
+                    image: new DecorationImage(
+                        image: new AssetImage('vinho.jpg'))),
                 height: 100,
                 width: 100,
                 child: TextButton(
@@ -132,15 +130,16 @@ class _HomePageState extends State<HomePage> {
                         MaterialPageRoute(
                             builder: (context) => ListarProdutoVinho()));
                   },
-                  child: Text("Vinho"),
+                  child: Text(""),
                   style: TextButton.styleFrom(
                     primary: Colors.white,
-                    backgroundColor: Colors.purple,
                   ),
                 ),
               ),
               Container(
-                decoration: BoxDecoration(image: new DecorationImage(image: new AssetImage('uisque.jpg'))),
+                decoration: BoxDecoration(
+                    image: new DecorationImage(
+                        image: new AssetImage('uisque.jpg'))),
                 height: 100,
                 width: 100,
                 child: TextButton(
@@ -150,10 +149,9 @@ class _HomePageState extends State<HomePage> {
                         MaterialPageRoute(
                             builder: (context) => ListarProdutoWhisky()));
                   },
-                  child: Text("Whisky"),
+                  child: Text(""),
                   style: TextButton.styleFrom(
                     primary: Colors.white,
-                    backgroundColor: Colors.purple,
                   ),
                 ),
               ),
