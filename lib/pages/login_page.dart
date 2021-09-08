@@ -28,61 +28,86 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         title: Text("Login"),
       ),
-      body: Form(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Email'),
-                onChanged: (texto) => email = texto,
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Senha'),
-                obscureText: true,
-                onChanged: (texto) => senha = texto,
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  try {
-                    await userController.login(email, senha);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomePage()));
-                  } on FirebaseAuthException catch (e) {
-                    var msg = "";
-
-                    if (e.code == "wrong-password") {
-                      msg = "A senha está incorreta";
-                    } else if (e.code == "invalid-email") {
-                      msg = "Email inválido";
-                    } else {
-                      msg = "Ocorreu um erro";
-                    }
-
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(msg),
-                      ),
-                    );
-                  }
-                },
-                child: Text("Login"),
-              ),
-              SizedBox(height: 12),
-              OutlinedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SignupPage(),
-                    ),
-                  );
-                },
-                child: Text("Criar conta"),
-              )
-            ],
+      body: Column(
+        children: [
+          Image.asset(
+            "logo2.jpeg"
           ),
-        ),
+          Form(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  TextFormField(
+                    decoration: InputDecoration(labelText: 'Email'),
+                    onChanged: (texto) => email = texto,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: 'Senha'),
+                    obscureText: true,
+                    onChanged: (texto) => senha = texto,
+                  ),
+                  SizedBox(height: 12),
+                  ElevatedButton(
+                     style: ElevatedButton.styleFrom(
+                       primary: Color(0xFFF2622E),
+                       minimumSize: Size(150, 50),
+                     ), 
+                     onPressed: () async {
+                      try {
+                        await userController.login(email, senha);
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => HomePage()));
+                      } on FirebaseAuthException catch (e) {
+                        var msg = "";
+
+                        if (e.code == "wrong-password") {
+                          msg = "A senha está incorreta";
+                        } else if (e.code == "invalid-email") {
+                          msg = "Email inválido";
+                        } else {
+                          msg = "Ocorreu um erro";
+                        }
+
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(msg),
+                          ),
+                        );
+                      }
+                    },
+                    child: Text("Login"),
+                  ),
+                  SizedBox(height: 12),
+                  OutlinedButton(
+                      onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignupPage(),
+                        ),
+                      );
+                      
+                      // borderSide: BorderSide(
+                      //   width: 5.0,
+                      //   color: Color(0xFFF2622E),
+                      //   style: BorderStyle.solid
+                      //   );
+                    },
+                    style: OutlinedButton.styleFrom(
+                          side: BorderSide(
+                            width: 2.0,
+                            color: Color(0xFFF2622E),
+                            style: BorderStyle.solid,
+                          ),
+                        ),
+                    child: Text("Criar conta", style: TextStyle(color:Color(0xFFF2622E) )),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

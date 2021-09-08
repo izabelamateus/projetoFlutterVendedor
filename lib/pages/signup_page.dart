@@ -24,36 +24,48 @@ class _SignupPageState extends State<SignupPage> {
       appBar: AppBar(
         title: Text("Criar conta"),
       ),
-      body: Form(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Nome'),
-                onChanged: (texto) => nome = texto,
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Email'),
-                onChanged: (texto) => email = texto,
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Senha'),
-                obscureText: true,
-                onChanged: (texto) => senha = texto,
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  final user = UserModel(nome: nome);
-                  await userController.signup(email, senha, user);
-
-                  Navigator.pop(context);
-                },
-                child: Text("Criar conta"),
-              )
-            ],
+      body: Column(
+        children: [
+          Image.asset(
+            "logo2.jpeg"
           ),
-        ),
+          Form(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  TextFormField(
+                    decoration: InputDecoration(labelText: 'Nome'),
+                    onChanged: (texto) => nome = texto,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: 'Email'),
+                    onChanged: (texto) => email = texto,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: 'Senha'),
+                    obscureText: true,
+                    onChanged: (texto) => senha = texto,
+                  ),
+                  SizedBox(height: 12,),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                       primary: Color(0xFFF2622E),
+                       minimumSize: Size(150, 50),
+                     ), 
+                    onPressed: () async {
+                      final user = UserModel(nome: nome);
+                      await userController.signup(email, senha, user);
+
+                      Navigator.pop(context);
+                    },
+                    child: Text("Criar conta"),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
