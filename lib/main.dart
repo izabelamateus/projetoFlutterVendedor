@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: Color(0xFFF2622E),
           accentColor: Color(0xFFF2C6A0),
+          primarySwatch: Colors.deepOrange,
         ),
         debugShowCheckedModeBanner: false,
         home: Splash(),

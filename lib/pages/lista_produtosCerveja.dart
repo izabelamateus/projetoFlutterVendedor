@@ -73,7 +73,7 @@ class _ListarProdutoCervejaState extends State<ListarProdutoCerveja> {
                         child: Icon(Icons.photo),
                         width: 72,
                         height: double.maxFinite,
-                        color: Colors.grey,
+                        color: Colors.deepOrange,
                       ),
                 onTap: () {
                   Navigator.push(

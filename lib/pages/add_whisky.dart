@@ -76,7 +76,7 @@ class _AddWhiskyState extends State<AddWhisky> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Switch(
-                          activeColor: Colors.pink,
+                          activeColor: Colors.deepOrange,
                           value: promocao,
                           onChanged: (value) {
                             setState(() {
