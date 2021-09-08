@@ -57,24 +57,12 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: Icon(Icons.dashboard),
-              title: Text("Estatísticas Vendas"),
+              title: Text("Estatísticas Geral"),
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => PieChartSample2(),
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.dashboard),
-              title: Text("Estatísticas Receita"),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PieChartSample3(),
+                    builder: (context) => Estatisticas(),
                   ),
                 );
               },

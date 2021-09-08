@@ -10,9 +10,14 @@ class Estatisticas extends StatefulWidget {
 class _EstatisticasState extends State<Estatisticas> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Column(
-        children: [],
+    return SingleChildScrollView(
+      child: Material(
+        child: Column(
+          children: [
+            PieChartSample3(),
+            PieChartSample2(),
+          ],
+        ),
       ),
     );
   }
