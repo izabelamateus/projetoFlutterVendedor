@@ -10,6 +10,8 @@ class Estatisticas extends StatefulWidget {
 class _EstatisticasState extends State<Estatisticas> {
   @override
   Widget build(BuildContext context) {
-    return Material();
+    return Material(
+      child: Column(),
+    );
   }
 }
