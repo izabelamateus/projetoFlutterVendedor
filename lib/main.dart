@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Login',
         theme: ThemeData(
-          primarySwatch: Colors.pink,
+          primaryColor: Color(0xFFF2622E),
+          accentColor: Color(0xFFF2C6A0),
         ),
         debugShowCheckedModeBanner: false,
         home: LoginPage(),

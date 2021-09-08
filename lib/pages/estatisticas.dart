@@ -14,8 +14,8 @@ class _EstatisticasState extends State<Estatisticas> {
       child: Material(
         child: Column(
           children: [
+            LineChartSample(),
             PieChartSample3(),
-            PieChartSample2(),
           ],
         ),
       ),
