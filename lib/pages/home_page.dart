@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_flutter/pages/dash2.dart';
+import 'package:projeto_flutter/pages/estatisticas.dart';
 import 'package:projeto_flutter/pages/lista_produtosCerveja.dart';
 import 'package:projeto_flutter/pages/lista_produtosVinho.dart';
 import 'package:projeto_flutter/pages/lista_produtosWhisky.dart';
-import 'package:projeto_flutter/pages/teste.dart';
 import 'package:provider/provider.dart';
 import '../controllers/user_controller.dart';
 import 'dash.dart';
@@ -56,7 +57,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: Icon(Icons.dashboard),
-              title: Text("Estatísticas"),
+              title: Text("Estatísticas Vendas"),
               onTap: () {
                 Navigator.push(
                   context,
@@ -66,15 +67,28 @@ class _HomePageState extends State<HomePage> {
                 );
               },
             ),
+            ListTile(
+              leading: Icon(Icons.dashboard),
+              title: Text("Estatísticas Receita"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PieChartSample3(),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
       appBar: AppBar(
-        title: Text("Adicionar por categoria"),
+        title: Text("Produtos por Categoria"),
         actions: [
           IconButton(
             onPressed: () async {
               await userController.logout();
+              Navigator.pop(context);
             },
             icon: Icon(Icons.exit_to_app),
           ),
