@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_flutter/pages/splash.dart';
 import 'package:provider/provider.dart';
 import './pages/home_page.dart';
 import './pages/lista_produtos.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
           accentColor: Color(0xFFF2C6A0),
         ),
         debugShowCheckedModeBanner: false,
-        home: LoginPage(),
+        home: Splash(),
       ),
     );
   }
