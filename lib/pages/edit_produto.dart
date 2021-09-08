@@ -147,7 +147,7 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
                   ).toMap();
 
                   await FirebaseFirestore.instance
-                      .collection('Produtos')
+                      .collection('produtos')
                       .doc(widget.produto.key)
                       .update(atualizado);
 

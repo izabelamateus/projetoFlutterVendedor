@@ -84,11 +84,10 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          Container(
-            child: Text("colocar dashboard"),
-            color: Colors.blue,
-            height: 250,
+          Image.asset(
+            "logo2.jpeg"
           ),
+          
           SizedBox(height: 9),
           Text(
             "Categorias",
@@ -102,6 +101,7 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
+                decoration: BoxDecoration(image: new DecorationImage(image: new AssetImage('cerveja.jpg'))),
                 height: 100,
                 width: 100,
                 child: TextButton(
@@ -111,14 +111,18 @@ class _HomePageState extends State<HomePage> {
                         MaterialPageRoute(
                             builder: (context) => ListarProdutoCerveja()));
                   },
-                  child: Text("Cerveja"),
-                  style: TextButton.styleFrom(
-                    primary: Colors.white,
-                    backgroundColor: Colors.purple,
-                  ),
+                  child: Text(
+                        'Cerveja',
+                        style: TextStyle(color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                          
+                        ),
+                      ),
+
                 ),
               ),
               Container(
+                decoration: BoxDecoration(image: new DecorationImage(image: new AssetImage('vinho.jpg'))),
                 height: 100,
                 width: 100,
                 child: TextButton(
@@ -136,6 +140,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Container(
+                decoration: BoxDecoration(image: new DecorationImage(image: new AssetImage('uisque.jpg'))),
                 height: 100,
                 width: 100,
                 child: TextButton(
