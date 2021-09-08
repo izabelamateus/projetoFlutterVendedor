@@ -139,6 +139,13 @@ class _AddVinhoState extends State<AddVinho> {
 
                   Navigator.pop(context);
                 },
+                style: OutlinedButton.styleFrom(
+                          side: BorderSide(
+                            width: 2.0,
+                            color: Color(0xFFF2622E),
+                            style: BorderStyle.solid,
+                          ),
+                        ),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text("Adicionar Vinho"),

@@ -153,6 +153,13 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
 
                   Navigator.pop(context);
                 },
+                style: OutlinedButton.styleFrom(
+                          side: BorderSide(
+                            width: 2.0,
+                            color: Color(0xFFF2622E),
+                            style: BorderStyle.solid,
+                          ),
+                        ),
                 child: Text("Atualizar produto"),
               )
             ],
