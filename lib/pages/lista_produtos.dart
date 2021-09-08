@@ -25,6 +25,7 @@ class _ListarProdutoState extends State<ListarProduto> {
           IconButton(
             onPressed: () async {
               await userController.logout();
+              Navigator.pop(context);
             },
             icon: Icon(Icons.exit_to_app),
           ),

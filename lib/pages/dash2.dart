@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../controllers/user_controller.dart';
 import 'indicator.dart';
 
-class PieChartSample2 extends StatefulWidget {
+class PieChartSample3 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => PieChart2State();
 }
@@ -30,7 +30,7 @@ class PieChart2State extends State {
         child: Column(
           children: [
             Row(
-              children: [Text('Vendas')],
+              children: [Text('Receita')],
             ),
             AspectRatio(
               aspectRatio: 1.3,
@@ -125,7 +125,7 @@ class PieChart2State extends State {
           return PieChartSectionData(
             color: const Color(0xff0293ee),
             value: 40,
-            title: '60%',
+            title: '50%',
             radius: radius,
             titleStyle: TextStyle(
                 fontSize: fontSize,
@@ -136,7 +136,7 @@ class PieChart2State extends State {
           return PieChartSectionData(
             color: const Color(0xfff8b250),
             value: 30,
-            title: '20%',
+            title: '25%',
             radius: radius,
             titleStyle: TextStyle(
                 fontSize: fontSize,
@@ -147,7 +147,7 @@ class PieChart2State extends State {
           return PieChartSectionData(
             color: const Color(0xff845bef),
             value: 15,
-            title: '20%',
+            title: '25%',
             radius: radius,
             titleStyle: TextStyle(
                 fontSize: fontSize,

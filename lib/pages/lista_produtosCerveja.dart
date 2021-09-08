@@ -26,6 +26,7 @@ class _ListarProdutoCervejaState extends State<ListarProdutoCerveja> {
           IconButton(
             onPressed: () async {
               await userController.logout();
+              Navigator.pop(context);
             },
             icon: Icon(Icons.exit_to_app),
           ),

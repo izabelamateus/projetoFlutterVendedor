@@ -36,7 +36,7 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
           IconButton(
             onPressed: () async {
               await FirebaseFirestore.instance
-                  .collection('Produtos')
+                  .collection('produtos')
                   .doc(widget.produto.key)
                   .delete();
               Navigator.pop(context);
