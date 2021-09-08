@@ -25,7 +25,7 @@ class _SplashState extends State<Splash> {
     //começa a contar os segundos
     WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback(
       (timeStamp) {
-        Future.delayed(Duration(seconds: 3)).then(
+        Future.delayed(Duration(seconds: 4)).then(
           (value) => Navigator.of(context).push(
             MaterialPageRoute(builder: (BuildContext context) => LoginPage()),
           ),
@@ -63,22 +63,38 @@ class _SplashState extends State<Splash> {
                     "assets/LOGO.png",
                     height: 160,
                   ),
-                  Column(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       AnimatedCard(
-                        duration: Duration(seconds: 2),
-                        direction: AnimatedCardDirection.bottom,
+                        duration: Duration(seconds: 3),
+                        direction: AnimatedCardDirection.left,
                         child: Text(
-                          "SoulCode",
+                          "Soul",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white,
                           ),
                         ),
                       ),
+                   
+                    AnimatedCard(
+                        duration: Duration(seconds: 3),
+                        direction: AnimatedCardDirection.right,
+                        child: Text(
+                          "Code",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                   
+                   
+                   
+                   
                     ],
                   ),
                 ],
