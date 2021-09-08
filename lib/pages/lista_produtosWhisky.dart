@@ -74,8 +74,10 @@ class _ListarProdutoWhiskyState extends State<ListarProdutoWhisky> {
                         child: Icon(Icons.photo),
                         width: 72,
                         height: double.maxFinite,
-                        color: Colors.blue,
+                        color: Colors.deepOrange,
                       ),
+                      
+                    
                 onTap: () {
                   Navigator.push(
                     context,
@@ -86,6 +88,7 @@ class _ListarProdutoWhiskyState extends State<ListarProdutoWhisky> {
                     ),
                   );
                 },
+                
               );
             },
           );
