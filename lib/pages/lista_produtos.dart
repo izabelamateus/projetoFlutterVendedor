@@ -58,9 +58,28 @@ class _ListarProdutoState extends State<ListarProduto> {
               return ListTile(
                 title: Text(produto.item),
                 subtitle: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    Text('Quantidade: '),
                     Text(produto.quantidade),
+                    SizedBox(width: 6),
+                    Text('Preço: '),
                     Text(produto.preco),
+                    GestureDetector(
+                        child: Icon(
+                          Icons.edit,
+                          color: Color(0xFFF2C6A0),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => EditProdutoPage(
+                                produto: produto,
+                              ),
+                            ),
+                          );
+                        }),
                   ],
                 ),
                 leading: produto.imagem != null
@@ -75,16 +94,6 @@ class _ListarProdutoState extends State<ListarProduto> {
                         height: double.maxFinite,
                         color: Colors.deepOrange,
                       ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => EditProdutoPage(
-                        produto: produto,
-                      ),
-                    ),
-                  );
-                },
               );
             },
           );

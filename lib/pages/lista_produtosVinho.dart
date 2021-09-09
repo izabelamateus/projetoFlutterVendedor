@@ -55,12 +55,28 @@ class _ListarProdutoVinhoState extends State<ListarProdutoVinho> {
               return ListTile(
                 title: Text(produto.item),
                 subtitle: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text("Quantidade: "),
                     Text(produto.quantidade),
                     SizedBox(width: 6),
                     Text("Valor: "),
                     Text(produto.preco),
+                    GestureDetector(
+                        child: Icon(
+                          Icons.edit,
+                          color: Color(0xFFF2C6A0),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => EditProdutoPage(
+                                produto: produto,
+                              ),
+                            ),
+                          );
+                        }),
                   ],
                 ),
                 leading: produto.imagem != null
@@ -75,16 +91,6 @@ class _ListarProdutoVinhoState extends State<ListarProdutoVinho> {
                         height: double.maxFinite,
                         color: Colors.deepOrange,
                       ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => EditProdutoPage(
-                        produto: produto,
-                      ),
-                    ),
-                  );
-                },
               );
             },
           );
