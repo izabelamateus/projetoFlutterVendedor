@@ -23,6 +23,7 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
   late final quantidadeCont = TextEditingController()
     ..text = widget.produto.quantidade;
   late final precoCont = TextEditingController()..text = widget.produto.preco;
+  
 
   bool promocao = false;
   late Uint8List? file = widget.produto.imagem;
@@ -143,11 +144,11 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
                     ownerKey: widget.produto.ownerKey,
                     item: itemCont.text,
                     descricao: descricaoCont.text,
-                    quantidade: widget.produto.quantidade,
-                    preco: widget.produto.preco,
+                    quantidade: quantidadeCont.text,
+                    preco: precoCont.text,
                     promocao: widget.produto.promocao,
-                    categoria: widget.produto.categoria,
-                    volume: widget.produto.volume,
+                    categoria: categoriaCont.text,
+                    volume: volumeCont.text,
                     imagem: file,
                   ).toMap();
 
