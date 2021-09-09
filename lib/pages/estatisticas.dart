@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'dash.dart';
 import 'dash2.dart';
 import '../../../controllers/user_controller.dart';
+import 'login_page.dart';
 
 class Estatisticas extends StatefulWidget {
   @override
@@ -9,6 +11,10 @@ class Estatisticas extends StatefulWidget {
 }
 
 class _EstatisticasState extends State<Estatisticas> {
+  late final userController = Provider.of<UserController>(
+    context,
+    listen: false,
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,8 +23,13 @@ class _EstatisticasState extends State<Estatisticas> {
         actions: [
           IconButton(
             onPressed: () async {
-              // await userController.logout();
-              Navigator.pop(context);
+              await userController.logout();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginPage(),
+                ),
+              );
             },
             icon: Icon(Icons.exit_to_app),
           ),

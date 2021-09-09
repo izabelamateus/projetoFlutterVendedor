@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:projeto_flutter/models/produto.dart';
 import 'edit_produto.dart';
 import '../../../controllers/user_controller.dart';
+import 'login_page.dart';
 
 class ListarProdutoCerveja extends StatefulWidget {
   @override
@@ -26,7 +27,12 @@ class _ListarProdutoCervejaState extends State<ListarProdutoCerveja> {
           IconButton(
             onPressed: () async {
               await userController.logout();
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginPage(),
+                ),
+              );
             },
             icon: Icon(Icons.exit_to_app),
           ),
