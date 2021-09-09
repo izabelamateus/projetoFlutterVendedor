@@ -95,14 +95,19 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Switch(
-                          activeColor: Colors.pink,
-                          value: promocao,
-                          onChanged: (value) {
-                            setState(() {
-                              promocao = value;
-                            });
-                          },
+                        Row(
+                          children: [
+                            Text('Adicionar Produto na Promoção?'),
+                            Switch(
+                              activeColor: Colors.deepOrange,
+                              value: promocao,
+                              onChanged: (value) {
+                                setState(() {
+                                  promocao = value;
+                                });
+                              },
+                            ),
+                          ],
                         ),
                         SizedBox(
                           height: 12.0,
@@ -154,12 +159,12 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
                   Navigator.pop(context);
                 },
                 style: OutlinedButton.styleFrom(
-                          side: BorderSide(
-                            width: 2.0,
-                            color: Color(0xFFF2622E),
-                            style: BorderStyle.solid,
-                          ),
-                        ),
+                  side: BorderSide(
+                    width: 2.0,
+                    color: Color(0xFFF2622E),
+                    style: BorderStyle.solid,
+                  ),
+                ),
                 child: Text("Atualizar produto"),
               )
             ],
