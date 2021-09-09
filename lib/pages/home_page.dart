@@ -97,66 +97,88 @@ class _HomePageState extends State<HomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                    image: new DecorationImage(
-                        image: new AssetImage('cerveja.jpg'))),
-                height: 100,
-                width: 100,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ListarProdutoCerveja()));
-                  },
-                  child: Text(
-                    '',
-                    style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.bold),
+              Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        image: new DecorationImage(
+                            image: new AssetImage('cerveja.jpg'))),
+                    height: 100,
+                    width: 100,
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ListarProdutoCerveja()));
+                      },
+                      child: Text(
+                        '',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   ),
-                ),
+                  Text('Cervejas'),
+                ],
               ),
-              Container(
-                decoration: BoxDecoration(
-                    image: new DecorationImage(
-                        image: new AssetImage('vinho.jpg'))),
-                height: 100,
-                width: 100,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ListarProdutoVinho()));
-                  },
-                  child: Text(""),
-                  style: TextButton.styleFrom(
-                    primary: Colors.white,
+              Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        image: new DecorationImage(
+                            image: new AssetImage('vinho.jpg'))),
+                    height: 100,
+                    width: 100,
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ListarProdutoVinho()));
+                      },
+                      child: Text(""),
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                      ),
+                    ),
                   ),
-                ),
+                  Text('Vinhos'),
+                ],
               ),
-              Container(
-                decoration: BoxDecoration(
-                    image: new DecorationImage(
-                        image: new AssetImage('uisque.jpg'))),
-                height: 100,
-                width: 100,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ListarProdutoWhisky()));
-                  },
-                  child: Text(""),
-                  style: TextButton.styleFrom(
-                    primary: Colors.white,
+              Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        image: new DecorationImage(
+                            image: new AssetImage('uisque.jpg'))),
+                    height: 100,
+                    width: 100,
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ListarProdutoWhisky()));
+                      },
+                      child: Text(""),
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                      ),
+                    ),
                   ),
-                ),
+                  Text('Whiskies'),
+                ],
               ),
             ],
-          )
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          Text(
+            'Bem vindo, ${userController.model.nome}!',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
         ],
       ),
     );

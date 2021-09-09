@@ -91,7 +91,7 @@ class _ListarProdutoWhiskyState extends State<ListarProdutoWhisky> {
                 leading: produto.imagem != null
                     ? Image.memory(
                         produto.imagem!,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.contain,
                         width: 72,
                       )
                     : Container(
