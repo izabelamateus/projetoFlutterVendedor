@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: Icon(Icons.person),
-              title: Text("Bootiquim SoulBreja"),
+              title: Text("Bootquim SoulBreja"),
               onTap: () {
                 Navigator.push(
                   context,
@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     decoration: BoxDecoration(
                         image: new DecorationImage(
-                            image: new AssetImage('cerveja.jpg'))),
+                            image: new AssetImage('cerveja.png'))),
                     height: 100,
                     width: 100,
                     child: TextButton(
@@ -127,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     decoration: BoxDecoration(
                         image: new DecorationImage(
-                            image: new AssetImage('vinho.jpg'))),
+                            image: new AssetImage('vinho.png'))),
                     height: 100,
                     width: 100,
                     child: TextButton(
@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     decoration: BoxDecoration(
                         image: new DecorationImage(
-                            image: new AssetImage('uisque.jpg'))),
+                            image: new AssetImage('uisque.png'))),
                     height: 100,
                     width: 100,
                     child: TextButton(
