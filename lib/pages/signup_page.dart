@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_flutter/pages/login_page.dart';
 import 'package:provider/provider.dart';
 import '../models/user_model.dart';
 import '../../../controllers/user_controller.dart';
@@ -26,9 +27,7 @@ class _SignupPageState extends State<SignupPage> {
       ),
       body: Column(
         children: [
-          Image.asset(
-            "logo2.jpeg"
-          ),
+          Image.asset("logo2.jpeg"),
           Form(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -47,12 +46,14 @@ class _SignupPageState extends State<SignupPage> {
                     obscureText: true,
                     onChanged: (texto) => senha = texto,
                   ),
-                  SizedBox(height: 12,),
+                  SizedBox(
+                    height: 12,
+                  ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                       primary: Color(0xFFF2622E),
-                       minimumSize: Size(150, 50),
-                     ), 
+                      primary: Color(0xFFF2622E),
+                      minimumSize: Size(150, 50),
+                    ),
                     onPressed: () async {
                       final user = UserModel(nome: nome);
                       await userController.signup(email, senha, user);
@@ -65,6 +66,22 @@ class _SignupPageState extends State<SignupPage> {
               ),
             ),
           ),
+          TextButton(
+            child: Text('Tenho cadastro'),
+           
+           
+            
+            onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LoginPage(),
+                  ),
+                );
+            }
+          )
+            
+          
         ],
       ),
     );
