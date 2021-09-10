@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_flutter/pages/login_page.dart';
 import 'package:provider/provider.dart';
 import '../models/user_model.dart';
 import '../../../controllers/user_controller.dart';
@@ -65,6 +66,22 @@ class _SignupPageState extends State<SignupPage> {
               ),
             ),
           ),
+          TextButton(
+            child: Text('Tenho cadastro'),
+           
+           
+            
+            onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LoginPage(),
+                  ),
+                );
+            }
+          )
+            
+          
         ],
       ),
     );
