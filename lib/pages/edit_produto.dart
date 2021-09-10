@@ -24,8 +24,8 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
     ..text = widget.produto.quantidade;
   late final precoCont = TextEditingController()..text = widget.produto.preco;
   
-
-  bool promocao = false;
+  late bool promocaoCont = false;
+  //bool promocao = false;
   late Uint8List? file = widget.produto.imagem;
 
   @override
@@ -101,10 +101,10 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
                             Text('Adicionar Produto na Promoção?'),
                             Switch(
                               activeColor: Colors.deepOrange,
-                              value: promocao,
-                              onChanged: (value) {
+                              value: promocaoCont,
+                              onChanged: (bool newValue) {
                                 setState(() {
-                                  promocao = value;
+                                  promocaoCont = newValue;
                                 });
                               },
                             ),
@@ -146,7 +146,7 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
                     descricao: descricaoCont.text,
                     quantidade: quantidadeCont.text,
                     preco: precoCont.text,
-                    promocao: widget.produto.promocao,
+                    promocao: promocaoCont,
                     categoria: categoriaCont.text,
                     volume: volumeCont.text,
                     imagem: file,
