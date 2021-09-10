@@ -22,7 +22,7 @@ class _ListUsuariosPageState extends State<ListUsuariosPage> {
         title: Text("Usuários"),
       ),
       body: FutureBuilder<QuerySnapshot<Map<String, dynamic>>>(
-        future: FirebaseFirestore.instance.collection('usuarios').get(),
+        future: FirebaseFirestore.instance.collection('vendedores').get(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Center(
@@ -57,4 +57,3 @@ class _ListUsuariosPageState extends State<ListUsuariosPage> {
     );
   }
 }
-
