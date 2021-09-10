@@ -24,7 +24,7 @@ class _EditProdutoPageState extends State<EditProdutoPage> {
     ..text = widget.produto.quantidade;
   late final precoCont = TextEditingController()..text = widget.produto.preco;
   
-  late bool promocaoCont = false;
+  late bool promocaoCont = widget.produto.promocao;
   //bool promocao = false;
   late Uint8List? file = widget.produto.imagem;
 
