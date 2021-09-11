@@ -26,7 +26,12 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.deepOrange,
         ),
         debugShowCheckedModeBanner: false,
-        home: Splash(),
+     
+       home: Splash(),
+       
+       
+         //chama a listar produto com usuário logado
+        // home: ListarProduto(),
       ),
     );
   }

@@ -8,6 +8,7 @@ enum AuthState { signed, unsigned, loading }
 class UserController extends ChangeNotifier {
   AuthState authState = AuthState.loading;
   late UserModel model;
+ 
 
   final _auth = FirebaseAuth.instance;
   final _db = FirebaseFirestore.instance;
