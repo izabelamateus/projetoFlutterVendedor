@@ -18,6 +18,9 @@ class _ListarProdutoCervejaState extends State<ListarProdutoCerveja> {
     listen: false,
   );
 
+
+  TextEditingController textSeachController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,69 +41,112 @@ class _ListarProdutoCervejaState extends State<ListarProdutoCerveja> {
           ),
         ],
       ),
-      body: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-        stream: FirebaseFirestore.instance
-            .collection('produtos')
-            .where('ownerKey', isEqualTo: userController.user!.uid)
-            .where('categoria', isEqualTo: "Cerveja")
-            .snapshots(),
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return Center(child: CircularProgressIndicator());
-          }
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(
+          children: [
+            Container(
+              height: 60,
+              child: TextField(
+                textAlign: TextAlign.center,
 
-          final produtos = snapshot.data!.docs.map((map) {
-            final data = map.data();
-            return ProdutoModel.fromMap(data, map.id);
-          }).toList();
+                controller: textSeachController,
 
-          return ListView.builder(
-            itemCount: produtos.length,
-            itemBuilder: (context, index) {
-              final produto = produtos[index];
-              return ListTile(
-                title: Text(produto.item),
-                subtitle: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text("Quantidade: "),
-                    Text(produto.quantidade),
-                    SizedBox(width: 6),
-                    Text("Valor: "),
-                    Text(produto.preco),
-                    GestureDetector(
-                        child: Icon(
-                          Icons.edit,
-                          color: Color(0xFFF2C6A0),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => EditProdutoPage(
-                                produto: produto,
-                              ),
-                            ),
-                          );
-                        }),
-                  ],
+               
+                onChanged: (wordToFilter) {
+                  print('TEXTO DIGITADO: $wordToFilter');
+                  filterList(wordToFilter);
+                },
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.search),
+                  labelText: 'Pesquisar Produto',
                 ),
-                leading: produto.imagem != null
-                    ? Image.memory(
-                        produto.imagem!,
-                        fit: BoxFit.contain,
-                        width: 72,
-                      )
-                    : Container(
-                        child: Icon(Icons.photo),
-                        width: 72,
-                        height: double.maxFinite,
-                        color: Colors.deepOrange,
-                      ),
-              );
-            },
-          );
-        },
+              ),
+            ),
+            Expanded(
+              child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+                stream: FirebaseFirestore.instance
+                    .collection('produtos')
+
+                   
+                    .where('ownerKey', isEqualTo: userController.user!.uid)
+                    .where('categoria', isEqualTo: "Cerveja")
+                   
+                    .snapshots(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+
+                  //lista de produtos
+                  final produtos = snapshot.data!.docs.map((map) {
+                    final data = map.data();
+                    return ProdutoModel.fromMap(data, map.id);
+                  }).toList();
+
+                
+                  produtosLocal = produtos;
+
+                  return ListView.builder(
+                    itemCount: textSeachController.text == ''
+                       
+                        ? produtos.length
+                      
+                        : produtosFiltrados.length,
+                    itemBuilder: (context, index) {
+                      final produto = textSeachController.text == ''
+
+                          ? produtos[index]
+                     
+                          : produtosFiltrados[index];
+                      return ListTile(
+                        title: Text(produto.item),
+                        subtitle: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text('Quantidade: '),
+                            Text(produto.quantidade),
+                            SizedBox(width: 6),
+                            Text('Preço: '),
+                            Text(produto.preco),
+                            GestureDetector(
+                                child: Icon(
+                                  Icons.edit,
+                                  color: Color(0xFFF2C6A0),
+                                ),
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => EditProdutoPage(
+                                        produto: produto,
+                                      ),
+                                    ),
+                                  );
+                                }),
+                          ],
+                        ),
+                        leading: produto.imagem != null
+                            ? Image.memory(
+                                produto.imagem!,
+                                fit: BoxFit.contain,
+                                width: 72,
+                              )
+                            : Container(
+                                child: Icon(Icons.photo),
+                                width: 72,
+                                height: double.maxFinite,
+                                color: Colors.deepOrange,
+                              ),
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
@@ -114,5 +160,20 @@ class _ListarProdutoCervejaState extends State<ListarProdutoCerveja> {
         },
       ),
     );
+  }
+
+
+  List<ProdutoModel> produtosLocal = [];
+  List<ProdutoModel> produtosFiltrados = [];
+
+  filterList(String filter) {
+    produtosFiltrados = produtosLocal
+        .where((ProdutoModel produto) =>
+          
+            produto.item.toLowerCase().contains(filter.toLowerCase()))
+       
+        .toList();
+
+    setState(() {});
   }
 }
