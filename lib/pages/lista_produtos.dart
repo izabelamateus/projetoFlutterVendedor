@@ -17,11 +17,14 @@ class _ListarProdutoState extends State<ListarProduto> {
     listen: false,
   );
 
+
   //TextEditingController: criar o controller  para um campo de texto editável
   //Sempre que o usuário modifica um campo de texto com um TextEditingController associado ,
   //o campo de texto atualiza o valor e o controlador notifica seus ouvintes
   //controle irá "receber" o valor que é digitado
   TextEditingController textSeachController = TextEditingController();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -160,6 +163,7 @@ class _ListarProdutoState extends State<ListarProduto> {
                                 }),
                           ],
                         ),
+                     
                         leading: produto.imagem != null
                             ? Image.memory(
                                 produto.imagem!,
